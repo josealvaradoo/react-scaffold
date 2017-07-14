@@ -51,6 +51,26 @@ body{
  * ----------------------------------------------------------------------------
  *
  */
+ .button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: .6rem 1.3rem;
+    color: #555;
+    font-weight: 300;
+    font-size: .9rem;
+    text-decoration: none;
+    background: white;
+    border: 1px solid #e8e8e8;
+    border-radius: 2px;
+    box-shadow: 0 2px 1px rgba(0,0,0,0.1);
+}
+.button:hover {
+    background: #eee;
+}
+.button .fa {
+    margin-right: .5rem;
+}
 .title {
     position: relative;
     font-size: 2rem;
