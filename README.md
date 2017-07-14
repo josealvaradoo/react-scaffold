@@ -19,7 +19,7 @@ npm run start
 ```
 
 ### Trabajar sobre el proyecto
-Para empezar a trabajar sobre el proyecto, modifica o crea los archivos en la carpeta `/src`. El archivo principal es `/src/index.js` por lo que no debes eliminarlo, pero sí puedes modificarlo. Y puedes eliminar la carpeta `src/scaffold` si lo deseas.
+Para empezar a trabajar sobre el proyecto, modifica o crea los archivos en la carpeta `/app`. El archivo principal es `/app/index.js` por lo que no debes eliminarlo, pero sí puedes modificarlo. Y puedes eliminar la carpeta `app/scaffold` si lo deseas.
 
 ## Producción
 
