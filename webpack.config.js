@@ -1,16 +1,16 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-    template: './app/index.html',
+    template: './src/index.html',
     filename: 'index.html',
     inject: 'body'
 })
 
 
 const config = {
-    entry: './app/index.js',
+    entry: './src/index.js',
     output: {
-        path: path.resolve('dist'),
+        path: path.resolve('public'),
         filename: 'bundle.js'
     },
     resolve: {
@@ -37,6 +37,13 @@ const config = {
                         loader: 'css-loader'
                     }
                 ]
+            },
+            {
+                test: /\.(png|svg|gif|jpe?g)$/,
+                'exclude': /node_modules/,
+                use: [{
+                    loader: 'file-loader'
+                }]
             }
         ]
     },
