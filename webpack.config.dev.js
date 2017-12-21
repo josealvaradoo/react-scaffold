@@ -1,20 +1,16 @@
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     template: './src/index.html',
     filename: 'index.html',
     inject: 'body'
 });
-const CleanWebpackPluginConfig =  new CleanWebpackPlugin(
-    ['build'], {root: __dirname}
-)
 
 const config = {
     entry: './src/index.js',
     output: {
         path: path.resolve('build'),
-        filename: 'bundle.[hash].js'
+        filename: 'bundle.js'
     },
     resolve: {
         extensions: ['.js', '.jsx']
@@ -50,10 +46,7 @@ const config = {
             }
         ]
     },
-    plugins: [
-        HtmlWebpackPluginConfig,
-        CleanWebpackPluginConfig
-    ],
+    plugins: [HtmlWebpackPluginConfig],
     devServer: {
         host: 'localhost',
         port: 3000,
