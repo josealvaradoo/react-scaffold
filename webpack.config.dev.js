@@ -1,12 +1,8 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-    template: './src/index.html',
-    filename: 'index.html',
-    inject: 'body'
-});
+const WebpackPlugins = require('./webpack/webpack.plugins.config.js');
+const WebpackDevServer = require('./webpack/webpack.server.config.js');
 
-const config = {
+module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve('build'),
@@ -28,9 +24,14 @@ const config = {
                 }
             },
             {
+                test: /\.json$/,
+                exclude: /node_modules/,
+                use: ['json-loader']
+            },
+            {
                 test: /\.css$/,
                 exclude: /node_modules/,
-                use: ['style-loader','css-loader']
+                use: ['style-loader', 'css-loader']
             },
             {
                 test: /\.(png|svg|gif|jpe?g)$/,
@@ -41,12 +42,8 @@ const config = {
             }
         ]
     },
-    plugins: [HtmlWebpackPluginConfig],
-    devServer: {
-        host: 'localhost',
-        port: 3000,
-        compress: true
-    }
-}
-
-module.exports = config;
+    plugins: [
+        WebpackPlugins.HtmlWebpackPluginConfig
+    ],
+    devServer: WebpackDevServer
+};

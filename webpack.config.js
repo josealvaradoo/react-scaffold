@@ -1,20 +1,12 @@
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-    template: './src/index.html',
-    filename: 'index.html',
-    inject: 'body'
-});
-const CleanWebpackPluginConfig =  new CleanWebpackPlugin(
-    ['build'], {root: __dirname}
-)
+const WebpackPlugins = require('./webpack/webpack.plugins.config.js');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
-const config = {
+module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve('build'),
-        filename: 'bundle.[hash].js'
+        filename: 'statics/js/main[hash].js'
     },
     resolve: {
         extensions: ['.js', '.jsx']
@@ -32,9 +24,17 @@ const config = {
                 }
             },
             {
+                test: /\.json$/,
+                exclude: /node_modules/,
+                use: ['json-loader']
+            },
+            {
                 test: /\.css$/,
                 exclude: /node_modules/,
-                use: ['style-loader','css-loader']
+                use: ExtractTextWebpackPlugin.extract({
+                    use: 'css-loader',
+                    fallback: 'style-loader'
+                })
             },
             {
                 test: /\.(png|svg|gif|jpe?g)$/,
@@ -46,14 +46,10 @@ const config = {
         ]
     },
     plugins: [
-        HtmlWebpackPluginConfig,
-        CleanWebpackPluginConfig
-    ],
-    devServer: {
-        host: 'localhost',
-        port: 3000,
-        compress: true
-    }
-}
-
-module.exports = config;
+        WebpackPlugins.ProgressBarWebpackPluginConfig,
+        WebpackPlugins.CleanWebpackPluginConfig,
+        WebpackPlugins.HtmlWebpackPluginConfig,
+        WebpackPlugins.ExtractTextWebpackPluginConfig,
+        WebpackPlugins.UglifyJSWebpackPluginConfig
+    ]
+};
