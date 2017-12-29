@@ -30,7 +30,6 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                exclude: /node_modules/,
                 use: ExtractTextWebpackPlugin.extract({
                     use: 'css-loader',
                     fallback: 'style-loader'
