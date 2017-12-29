@@ -82,7 +82,7 @@ body{
     display: block;
     position: relative;
     min-width: 200px;
-    height: .5px;
+    height: 1px;
 }
 .title:before {
     right: 230px;
