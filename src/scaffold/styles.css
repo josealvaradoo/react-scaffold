@@ -32,29 +32,106 @@
  *
  */
 html,
-body {
-    height: 100vh;
+body,
+#root,
+.header {
+	height: 100%;
 }
 body{
-    display: flex;
-    width: 100%;
-    min-height: 100%;
+    display: block;
+    min-height: 100vh;
     font-family: 'Roboto', sans-serif, arial;
     color: #555;
-    background: linear-gradient(to top, var(--secondary-color), var(--primary-color));
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+	background: white;
 }
 /*
  * Template
  * ----------------------------------------------------------------------------
  *
  */
- .button {
-    position: absolute;
-    top: 15px;
-    right: 15px;
+.header {
+	display: flex;
+	flex-direction: row;
+    justify-content: center;
+    align-items: center;
+	background: linear-gradient(to top, var(--secondary-color), var(--primary-color));
+ }
+.main {
+	width: 100%;
+	background: linear-gradient(to bottom, var(--secondary-color) 1%, white 95%);
+ }
+.container {
+	margin: auto;
+	width: 90%;
+	max-width: 800px;
+ }
+.article {
+	padding: 3rem 1rem;
+	margin-bottom: 5rem;
+ }
+.article-title {
+	font-size: 3rem;
+	font-weight: 700;
+	color: #222;
+ }
+.article-date {
+	display: block;
+	margin-bottom: .5rem;
+	position: relative;
+	font-size: .8rem;
+	color: #999;
+}
+.article-author {
+	display: flex;
+	align-items: center;
+	margin-bottom: 2rem;
+}
+.article-author .article-author__img {
+	margin-right: .5rem;
+	width: 30px;
+	height: 30px;
+	border-radius: 200px;
+}
+.article-author .article-author__name,
+.article-author .article-author__name a {
+	color: #222;
+	font-weight: 500;
+	text-decoration: none;
+}
+.article-content h4 {
+	margin-top: 2.5rem;
+	margin-bottom: 1rem;
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: #222;
+}
+.article-content a {
+	color: #6dbadb;
+}
+.article-content p {
+	margin-bottom: 2rem;
+	line-height: 1.75rem;
+	font-size: 1.2rem;
+	font-weight: 300;
+	text-align: justify;
+}
+.article-content code {
+	padding: .2rem .5rem;
+	border: 1px solid #d7d7d7;
+	border-radius: 4px;
+	background-color: #f2f2f2;
+	color: rgb(207, 132, 119);
+	font-weight: 100;
+	font-size: .9rem;
+}
+.article-footer {
+	padding: 2rem 0;
+	text-align: center;
+}
+img {
+	max-width: 100%;
+}
+.button {
     padding: .6rem 1.3rem;
     color: #555;
     font-weight: 300;
@@ -62,14 +139,31 @@ body{
     text-decoration: none;
     background: white;
     border: 1px solid #e8e8e8;
-    border-radius: 2px;
+    border-radius: 4px;
     box-shadow: 0 2px 1px rgba(0,0,0,0.1);
+}
+.button.fixed {
+	position: fixed;
+    top: 15px;
+    right: 15px;
 }
 .button:hover {
     background: #eee;
 }
 .button .fa {
     margin-right: .5rem;
+}
+.button-cta {
+	background-color: transparent;
+	border: 1px solid #03a9f4;
+	background-color: #03a9f4;
+	color: white;
+	font-size: 1.4rem;
+	font-weight: 500;
+}
+.button-cta:hover {
+	background-color: #0286c2;
+	border-color: #0286c2;
 }
 .title {
     position: relative;
