@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJSWebpackPlugin = require('uglifyjs-webpack-plugin');
 
 // Separate CSS from js bundle and create a css bundle file
-const ExtractTextWebpackPluginConfig = new ExtractTextWebpackPlugin('statics/css/main[hash].css');
+const ExtractTextWebpackPluginConfig = new ExtractTextWebpackPlugin('./statics/css/main[hash].css');
 
 // Minify HTML and inject css & js bundle files
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({

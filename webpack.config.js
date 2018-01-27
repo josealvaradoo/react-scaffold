@@ -6,7 +6,8 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve('build'),
-        filename: 'statics/js/main[hash].js'
+        publicPath: path.resolve('build'),
+		filename: './statics/js/main[hash].js'
     },
     resolve: {
         extensions: ['.js', '.jsx']
@@ -39,9 +40,25 @@ module.exports = {
                 test: /\.(png|svg|gif|jpe?g)$/,
                 'exclude': /node_modules/,
                 use: [{
-                    loader: 'file-loader'
-                }]
-            }
+					loader: 'url-loader',
+					options: {
+						limit: 450000, // 450Kb
+						name: './statics/media/[name].[ext]',
+						fallback: 'file-loader'
+					}
+				}]
+			},
+			{
+				test: /\.(mp3|mp4|webm)$/,
+				use: [{
+					loader: 'url-loader',
+					options: {
+						limit: 1000000, // 1Mb
+						name: './statics/media/[name].[ext]',
+						fallback: 'file-loader'
+					}
+				}]
+			}
         ]
     },
     plugins: [
