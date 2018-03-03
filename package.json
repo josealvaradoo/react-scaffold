@@ -5,8 +5,8 @@
   "author": "@josealvaradoo",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --open --config ./webpack.config.dev.js",
-    "build": "webpack -p"
+    "start": "webpack-dev-server --open --config ./webpack.config.dev.js --mode development",
+    "build": "webpack -p --mode production"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
@@ -16,19 +16,20 @@
     "babel-preset-stage-0": "^6.24.1",
     "clean-webpack-plugin": "^0.1.17",
     "css-loader": "^0.28.4",
-    "extract-text-webpack-plugin": "^3.0.2",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.5",
-    "html-webpack-plugin": "^2.29.0",
+    "html-webpack-plugin": "^3.0.4",
     "json-loader": "^0.5.7",
     "progress-bar-webpack-plugin": "^1.10.0",
-    "style-loader": "^0.19.1",
+    "style-loader": "^0.20.2",
     "uglifyjs-webpack-plugin": "^1.1.5",
-    "webpack": "^3.2.0",
-    "webpack-dev-server": "^2.5.1"
+    "url-loader": "^1.0.0",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.10",
+    "webpack-dev-server": "^3.1.0"
   },
   "dependencies": {
     "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "url-loader": "^0.6.2"
+    "react-dom": "^16.2.0"
   }
 }
